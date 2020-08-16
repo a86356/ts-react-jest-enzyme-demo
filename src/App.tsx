@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import './App.css';
 
 interface IProps {
-    inputchecked:boolean
+    inputchecked:boolean,
+    inputVal:string
 }
 
 const App= (props:IProps) =>{
   const [counter,setCounter] =useState(0)
   const [checked,setChecked] =useState(false)
-  const {inputchecked} = props;
+  const [val,setVal] =useState("")
+  const {inputchecked,inputVal} = props;
     return (
 
     <div className="App">
@@ -21,6 +23,9 @@ const App= (props:IProps) =>{
        <div>
            <input type="checkbox" id="check" checked={inputchecked} onChange={()=>{setChecked(!checked)}}/>
        </div>
+        <div>
+            <input type="text" id="ipt" value={inputVal} />
+        </div>
     </div>
   );
 }

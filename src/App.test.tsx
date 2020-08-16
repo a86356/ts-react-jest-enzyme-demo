@@ -11,7 +11,8 @@ describe("shoulder render",()=>{
   let defaultProps:any;
   beforeAll(()=>{
     defaultProps={
-      inputchecked:true
+      inputchecked:true,
+      inputVal:"abc"
     }
   })
 
@@ -55,6 +56,9 @@ describe("shoulder render",()=>{
     expect(wrapper.find("#check").props().checked).toBeFalsy()
   });
 
+  test('test the props value to input', () => {
+    expect(wrapper.find("#ipt").prop("value")).toEqual("abc")
+  });
 
 })
 
