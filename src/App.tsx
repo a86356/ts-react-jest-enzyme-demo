@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
-function App() {
-  return (
+interface IProps {
+    inputchecked:boolean
+}
+
+const App= (props:IProps) =>{
+  const [counter,setCounter] =useState(0)
+  const [checked,setChecked] =useState(false)
+  const {inputchecked} = props;
+    return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>this is counter app</h1>
+      <div id="counter-value">{counter}</div>
+      <div>
+        <button id="increment-btn" onClick={()=>{setCounter(counter+1)}}>increment-btn</button>
+        <button id="decrement-btn" onClick={()=>{setCounter(counter-1)}}>decrement-btn</button>
+      </div>
+       <div>
+           <input type="checkbox" id="check" checked={inputchecked} onChange={()=>{setChecked(!checked)}}/>
+       </div>
     </div>
   );
 }
